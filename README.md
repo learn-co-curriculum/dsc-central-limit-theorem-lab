@@ -9,6 +9,8 @@ In this lab, we'll learn how to use the Central Limit Theorem to work with non-n
 You will be able to:
 * Demonstrate practical understanding of the Central Limit Theorem and how it can be used for parameter estimation
 
+## Let's get started!
+
 
 ```python
 import pandas as pd
@@ -33,7 +35,7 @@ print(len(data)) # 10000
     10000
 
 
-### Detecting Non-Normal Datasets
+## Detecting Non-Normal Datasets
 
 Before we can make use of the normal distribution, we need to first confirm that our data is normally distributed.  If it is not, then we'll need to use the Central Limit Theorem to create a sample distribution of sample means that will be normally distributed.  
 
@@ -47,7 +49,7 @@ sns.distplot(data);
 ```
 
 
-![png](index_files/index_5_0.png)
+![png](index_files/index_6_0.png)
 
 
 As expected, this dataset is not normally distributed.  
@@ -72,7 +74,7 @@ The output may seem a bit hard to interpret since we haven't covered hypothesis 
 
 Since our dataset is non-normal, that means we'll need to use the **_Central Limit Theorem._**
 
-### Sampling With Replacement
+## Sampling With Replacement
 
 In order to create a Sample Distribution of Sample Means, we need to first write a function that can sample with replacement.  
 
@@ -95,7 +97,7 @@ print(test_sample[:5]) # [56, 12, 73, 24, 8] (This will change if you run it mut
     [56, 12, 73, 24, 8]
 
 
-### Generating a Sample Mean
+## Generating a Sample Mean
 
 Next, we'll write another helper function that takes in a sample and returns the mean of that sample.  
 
@@ -112,7 +114,7 @@ print(test_sample2_mean) # 45.3 (This will also change if you run it multiple ti
     45.3
 
 
-### Creating a Sample Distribution of Sample Means
+## Creating a Sample Distribution of Sample Means
 
 Now that we have helper functions to help us sample with replacement and calculate sample means, we just need bring it all together and write a function that creates a sample distribution of sample means!
 
@@ -136,7 +138,7 @@ print(test_sample_dist[:5]) # [54.53333333333333, 60.666666666666664, 37.3, 39.2
     [48.86666666666667, 39.43333333333333, 49.7, 54.53333333333333, 60.666666666666664]
 
 
-### Visualizing the Sample Distribution as it Becomes Normal
+## Visualizing the Sample Distribution as it Becomes Normal
 
 The sample distribution of sample means isn't guaranteed to be normal after it hits a magic size.  Instead, the distribution begins to approximate a normal distribution as it gets larger and larger.  Generally, 30 is accepted as the number for sample size where the Central Limit Theorem begins to kick in--however, there are no magic numbers when it comes to probability. On average, and only on average, a sample distribution of sample means where the individual sample sizes were 29 would only be slightly less normal, while one with sample sizes of 31 would likely only be slightly more normal.  
 
@@ -152,7 +154,7 @@ sns.distplot(sample_dist_10);
 ```
 
 
-![png](index_files/index_16_0.png)
+![png](index_files/index_17_0.png)
 
 
 Now, let's increase the `dist_size` to 30, and `n` to 10.  Create another visualization to compare how it changes as size increases.  
@@ -164,7 +166,7 @@ sns.distplot(sample_dist_30);
 ```
 
 
-![png](index_files/index_18_0.png)
+![png](index_files/index_19_0.png)
 
 
 The data is already looking much more 'normal' than the first sample distribution, and much more 'normal' that the raw non-normal distribution we're sampling from. 
@@ -178,7 +180,7 @@ sns.distplot(sample_dist_1000);
 ```
 
 
-![png](index_files/index_20_0.png)
+![png](index_files/index_21_0.png)
 
 
 Great! As we can see, the dataset _approximates_ a normal distribution. It isn't pretty, but it's generally normal enough that we can use it to answer questions using z-scores and p-values.  

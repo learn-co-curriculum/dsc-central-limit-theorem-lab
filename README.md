@@ -9,6 +9,8 @@ In this lab, we'll learn how to use the Central Limit Theorem to work with non-n
 You will be able to:
 * Demonstrate practical understanding of the Central Limit Theorem and how it can be used for parameter estimation
 
+## Let's get started!
+
 
 ```python
 import pandas as pd
@@ -24,7 +26,7 @@ Next, read in the dataset.  A dataset of 10,000 numbers is stored in `non_normal
 
 **_Hint:_** Any of the `read_` methods in pandas will store 1-dimensional in a Series instead of a DataFrame if passed in the optimal parameter `squeeze=True`.
 
-### Detecting Non-Normal Datasets
+## Detecting Non-Normal Datasets
 
 Before we can make use of the normal distribution, we need to first confirm that our data is normally distributed.  If it is not, then we'll need to use the Central Limit Theorem to create a sample distribution of sample means that will be normally distributed.  
 
@@ -42,7 +44,7 @@ The output may seem a bit hard to interpret since we haven't covered hypothesis 
 
 Since our dataset is non-normal, that means we'll need to use the **_Central Limit Theorem._**
 
-### Sampling With Replacement
+## Sampling With Replacement
 
 In order to create a Sample Distribution of Sample Means, we need to first write a function that can sample with replacement.  
 
@@ -57,7 +59,7 @@ test_sample = get_sample(data, 30)
 print(test_sample[:5]) # [56, 12, 73, 24, 8] (This will change if you run it mutliple times)
 ```
 
-### Generating a Sample Mean
+## Generating a Sample Mean
 
 Next, we'll write another helper function that takes in a sample and returns the mean of that sample.  
 
@@ -86,7 +88,7 @@ test_sample_dist = create_sample_distribution(data)
 print(test_sample_dist[:5]) # [54.53333333333333, 60.666666666666664, 37.3, 39.266666666666666, 35.9]
 ```
 
-### Visualizing the Sample Distribution as it Becomes Normal
+## Visualizing the Sample Distribution as it Becomes Normal
 
 The sample distribution of sample means isn't guaranteed to be normal after it hits a magic size.  Instead, the distribution begins to approximate a normal distribution as it gets larger and larger.  Generally, 30 is accepted as the number for sample size where the Central Limit Theorem begins to kick in--however, there are no magic numbers when it comes to probability. On average, and only on average, a sample distribution of sample means where the individual sample sizes were 29 would only be slightly less normal, while one with sample sizes of 31 would likely only be slightly more normal.  
 

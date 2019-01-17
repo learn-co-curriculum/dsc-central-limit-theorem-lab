@@ -1,5 +1,5 @@
 
-# Central Limit Theorem Lab
+# Central Limit Theorem - Lab
 
 ## Introduction
 

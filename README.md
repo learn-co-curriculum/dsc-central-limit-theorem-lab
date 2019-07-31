@@ -26,6 +26,11 @@ Next, read in the dataset.  A dataset of 10,000 numbers is stored in `non_normal
 
 **_Hint:_** Any of the `read_` methods in pandas will store 1-dimensional in a Series instead of a DataFrame if passed in the optimal parameter `squeeze=True`.
 
+
+```python
+# Your code here
+```
+
 ## Detecting Non-Normal Datasets
 
 Before we can make use of the normal distribution, we need to first confirm that our data is normally distributed.  If it is not, then we'll need to use the Central Limit Theorem to create a sample distribution of sample means that will be normally distributed.  
@@ -34,11 +39,21 @@ There are two main ways to check if a sample follows the normal distribution or 
 
 In the cell below, use `seaborn`'s `distplot` method to visualize a histogram of the distribution overlaid with the a probability density curve.  
 
+
+```python
+# Your code here
+```
+
 As expected, this dataset is not normally distributed.  
 
 For a more formal way to check if a dataset is normally distributed or not, we can make use of a statistical test.  There are many different statistical tests that can be used to check for normality, but we'll keep it simple and just make use the `normaltest` function from scipy--see the documentation if you have questions about how to use this method. 
 
 In the cell below, use `normaltest()` to check if the dataset is normally distributed.  
+
+
+```python
+# Your code here
+```
 
 The output may seem a bit hard to interpret since we haven't covered hypothesis testing and p-values yet.  However, the function tests the hypothesis that the distribution passed into the function differs from the normal distribution.  The null hypothesis would then be that the data is normally distributed.  For now, that's all you need to remember--this will make more sense once you understand p-values.  
 
@@ -96,11 +111,26 @@ Let's create some sample distributions of different sizes and watch the Central 
 
 In the cell below, create a sample distribution from `data` of `dist_size` 10, with a sample size `n` of 3. Then, visualize this sample distribution with `distplot`.
 
+
+```python
+# Your code here
+```
+
 Now, let's increase the `dist_size` to 30, and `n` to 10.  Create another visualization to compare how it changes as size increases.  
+
+
+```python
+# Your code here
+```
 
 The data is already looking much more 'normal' than the first sample distribution, and much more 'normal' that the raw non-normal distribution we're sampling from. 
 
 In the cell below, create another sample distribution of `data` with `dist_size` 1000 and `n` of 30.  Visualize it to confirm the normality of this new distribution. 
+
+
+```python
+# Your code here
+```
 
 Great! As we can see, the dataset _approximates_ a normal distribution. It isn't pretty, but it's generally normal enough that we can use it to answer questions using z-scores and p-values.  
 

@@ -40,7 +40,7 @@ Next, read in the dataset.  A dataset of 10,000 numbers is stored in `non_normal
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -63,7 +63,7 @@ In the cell below, use `seaborn`'s `distplot` method to visualize a histogram of
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -84,7 +84,7 @@ In the cell below, use `normaltest()` to check if the dataset is normally distri
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -209,7 +209,7 @@ In the cell below, create a sample distribution from `data` of `dist_size` 10, w
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -228,7 +228,7 @@ Now, let's increase the `dist_size` to 30, and `n` to 10.  Create another visual
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -248,7 +248,7 @@ In the cell below, create another sample distribution of `data` with `dist_size`
 
 
 ```python
-
+# Your code here
 ```
 
 
@@ -270,8 +270,3 @@ Another handy feature of the Central Limit Theorem is that the mean and standard
 ## Summary
 
 In this lab, we learned to apply the central limit theorem in praxtice. We learned how to determine if a dataset was normal or not. From there, we used a function to sample with replacement and generate sample means. Afterwards, we created a sample distribution of sample means in order to answer questions about non-normally distributed datasets by working with the normally distributed sample distribution of sample means.  
-
-
-```python
-
-```

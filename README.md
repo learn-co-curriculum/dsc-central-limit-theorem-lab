@@ -114,7 +114,7 @@ print(test_sample2_mean) # 45.3 (This will also change if you run it multiple ti
     45.3
 
 
-## Creating a Sample Distribution of Sample Means
+### Creating a Sample Distribution of Sample Means
 
 Now that we have helper functions to help us sample with replacement and calculate sample means, we just need bring it all together and write a function that creates a sample distribution of sample means!
 

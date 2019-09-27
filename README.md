@@ -11,6 +11,8 @@ You will be able to:
 
 ## Let's get started!
 
+First, import the required libraries:
+
 
 ```python
 import pandas as pd
@@ -37,7 +39,7 @@ Before we can make use of the normal distribution, we need to first confirm that
 
 There are two main ways to check if a sample follows the normal distribution or not.  The easiest is to simply plot the data and visually check if the data follows a normal curve or not.  
 
-In the cell below, use `seaborn`'s `distplot` method to visualize a histogram of the distribution overlaid with the a probability density curve.  
+In the cell below, use `seaborn`'s `distplot` method to visualize a histogram of the distribution overlaid with the probability density curve.  
 
 
 ```python
@@ -46,7 +48,7 @@ In the cell below, use `seaborn`'s `distplot` method to visualize a histogram of
 
 As expected, this dataset is not normally distributed.  
 
-For a more formal way to check if a dataset is normally distributed or not, we can make use of a statistical test.  There are many different statistical tests that can be used to check for normality, but we'll keep it simple and just make use the `normaltest` function from scipy--see the [documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html) if you have questions about how to use this method. 
+For a more formal way to check if a dataset is normally distributed or not, we can make use of a statistical test.  There are many different statistical tests that can be used to check for normality, but we'll keep it simple and just make use of the `normaltest()` function from SciPy--see the [documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html) if you have questions about how to use this method. 
 
 In the cell below, use `normaltest()` to check if the dataset is normally distributed.  
 
@@ -55,13 +57,13 @@ In the cell below, use `normaltest()` to check if the dataset is normally distri
 # Your code here
 ```
 
-The output may seem a bit hard to interpret since we haven't covered hypothesis testing and p-values yet.  However, the function tests the hypothesis that the distribution passed into the function differs from the normal distribution. The null hypothesis would then be that the data *is* normally distributed. We typically reject the null hypothesis if the p-value is less than 0.05. For now, that's all you need to remember--this will make more sense once you understand p-values which will be covered in full detail subsequently.  
+The output may seem a bit hard to interpret since we haven't covered hypothesis testing and p-values in further detail yet.  However, the function tests the hypothesis that the distribution passed into the function differs from the normal distribution. The null hypothesis would then be that the data *is* normally distributed. We typically reject the null hypothesis if the p-value is less than 0.05. For now, that's all you need to remember--this will make more sense once you work with p-values more which you'll do subsequently.  
 
 Since our dataset is non-normal, that means we'll need to use the **_Central Limit Theorem._**
 
 ## Sampling With Replacement
 
-In order to create a Sample Distribution of Sample Means, we need to first write a function that can sample with replacement.  
+In order to create a Sample Distribution of Sample Means, we need to first write a function that can sample *with* replacement.  
 
 In the cell below, write a function that takes in an array of numbers `data` and a sample size `n` and returns an array that is a random sample of `data`, of size `n`.
 
@@ -71,7 +73,8 @@ def get_sample(data, n):
     pass
 
 test_sample = get_sample(data, 30)
-print(test_sample[:5]) # [56, 12, 73, 24, 8] (This will change if you run it mutliple times)
+print(test_sample[:5]) 
+# [56, 12, 73, 24, 8] (This will change if you run it mutliple times)
 ```
 
 ## Generating a Sample Mean
@@ -85,7 +88,8 @@ def get_sample_mean(sample):
 
 test_sample2 = get_sample(data, 30)
 test_sample2_mean = get_sample_mean(test_sample2)
-print(test_sample2_mean) # 45.3 (This will also change if you run it multiple times)
+print(test_sample2_mean) 
+# 45.3 (This will also change if you run it multiple times)
 ```
 
 ### Creating a Sample Distribution of Sample Means
@@ -100,7 +104,8 @@ def create_sample_distribution(data, dist_size=100, n=30):
     pass
 
 test_sample_dist = create_sample_distribution(data)
-print(test_sample_dist[:5]) # [54.53333333333333, 60.666666666666664, 37.3, 39.266666666666666, 35.9]
+print(test_sample_dist[:5]) 
+# [54.53333333333333, 60.666666666666664, 37.3, 39.266666666666666, 35.9]
 ```
 
 ## Visualizing the Sample Distribution as it Becomes Normal
@@ -132,7 +137,7 @@ In the cell below, create another sample distribution of `data` with `dist_size`
 # Your code here
 ```
 
-Great! As you can see, the dataset _approximates_ a normal distribution. It isn't pretty, but it's generally normal enough that we can use it to answer statistical questions using z-scores and p-values.  
+Great! As you can see, the dataset _approximates_ a normal distribution. It isn't pretty, but it's generally normal enough that we can use it to answer statistical questions using $z$-scores and p-values.  
 
 Another handy feature of the Central Limit Theorem is that the mean and standard deviation of the sample distribution should also approximate the population mean and standard deviation from the original non-normal dataset!  Although it's outside the scope of this lab, we could also use the same sampling methods seen here to approximate other parameters from any non-normal distribution, such as the median or mode!
 

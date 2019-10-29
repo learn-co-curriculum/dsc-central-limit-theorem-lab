@@ -7,7 +7,8 @@ In this lab, we'll learn how to use the Central Limit Theorem to work with non-n
 
 ## Objectives
 You will be able to:
-* Demonstrate a practical understanding of the Central Limit Theorem and how it can be used for parameter estimation
+* Use built-in methods to detect non-normal datasets
+* Create a sampling distribution of sample means to demonstrate the central limit theorem
 
 ## Let's get started!
 
@@ -48,7 +49,7 @@ In the cell below, use `seaborn`'s `distplot` method to visualize a histogram of
 
 As expected, this dataset is not normally distributed.  
 
-For a more formal way to check if a dataset is normally distributed or not, we can make use of a statistical test.  There are many different statistical tests that can be used to check for normality, but we'll keep it simple and just make use of the `normaltest()` function from SciPy--see the [documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html) if you have questions about how to use this method. 
+For a more formal way to check if a dataset is normally distributed or not, we can make use of a statistical test.  There are many different statistical tests that can be used to check for normality, but we'll keep it simple and just make use of the `normaltest()` function from `scipy.stats`, which we imported as `st` --see the [documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.normaltest.html) if you have questions about how to use this method. 
 
 In the cell below, use `normaltest()` to check if the dataset is normally distributed.  
 
@@ -74,7 +75,7 @@ def get_sample(data, n):
 
 test_sample = get_sample(data, 30)
 print(test_sample[:5]) 
-# [56, 12, 73, 24, 8] (This will change if you run it mutliple times)
+# [56, 12, 73, 24, 8] (This will change if you run it multiple times)
 ```
 
 ## Generating a Sample Mean

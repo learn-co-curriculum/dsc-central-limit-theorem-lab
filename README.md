@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 import seaborn as sns
 import scipy.stats as st
-np.random.seed(0)
+np.random.seed(0) #set a random seed for reproducibility
 ```
 
 Next, read in the dataset.  A dataset of 10,000 numbers is stored in `non_normal_dataset.csv`. Use pandas to read the data into a series.
@@ -106,7 +106,6 @@ def create_sample_distribution(data, dist_size=100, n=30):
 
 test_sample_dist = create_sample_distribution(data)
 print(test_sample_dist[:5]) 
-# [54.53333333333333, 60.666666666666664, 37.3, 39.266666666666666, 35.9]
 ```
 
 ## Visualizing the Sample Distribution as it Becomes Normal

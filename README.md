@@ -1,4 +1,3 @@
-
 # Central Limit Theorem - Lab
 
 ## Introduction
@@ -6,7 +5,9 @@
 In this lab, we'll learn how to use the Central Limit Theorem to work with non-normally distributed datasets as if they were normally distributed.  
 
 ## Objectives
+
 You will be able to:
+
 * Use built-in methods to detect non-normal datasets
 * Create a sampling distribution of sample means to demonstrate the central limit theorem
 

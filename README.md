@@ -1,4 +1,3 @@
-
 # Central Limit Theorem - Lab
 
 ## Introduction
@@ -6,7 +5,9 @@
 In this lab, we'll learn how to use the Central Limit Theorem to work with non-normally distributed datasets as if they were normally distributed.  
 
 ## Objectives
+
 You will be able to:
+
 * Use built-in methods to detect non-normal datasets
 * Create a sampling distribution of sample means to demonstrate the central limit theorem
 
@@ -76,7 +77,9 @@ sns.distplot(data);
 ```
 
 
+    
 ![png](index_files/index_9_0.png)
+    
 
 
 As expected, this dataset is not normally distributed.  
@@ -228,7 +231,9 @@ sns.distplot(sample_dist_10);
 ```
 
 
+    
 ![png](index_files/index_25_0.png)
+    
 
 
 Now, let's increase the `dist_size` to 30, and `n` to 10.  Create another visualization to compare how it changes as size increases.  
@@ -246,7 +251,9 @@ sns.distplot(sample_dist_30);
 ```
 
 
+    
 ![png](index_files/index_28_0.png)
+    
 
 
 The data is already looking much more 'normal' than the first sample distribution, and much more 'normal' that the raw non-normal distribution we're sampling from. 
@@ -266,7 +273,9 @@ sns.distplot(sample_dist_1000);
 ```
 
 
+    
 ![png](index_files/index_31_0.png)
+    
 
 
 Great! As you can see, the dataset _approximates_ a normal distribution. It isn't pretty, but it's generally normal enough that we can use it to answer statistical questions using $z$-scores and p-values.  

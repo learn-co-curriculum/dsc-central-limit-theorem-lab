@@ -127,8 +127,10 @@ def get_sample(data, n, seed):
     pass
 
 test_sample = get_sample(data, 30, 0)
-print(test_sample[:5]) 
-# [56, 12, 73, 24, 8] (This will change if you run it multiple times)
+print(test_sample[:5])
+
+# You will get [56, 12, 73, 24, 8] if you set your seed to zero and use the exact code
+# in our solution branch. It's okay if your results aren't exactly the same as ours!
 ```
 
 
@@ -166,10 +168,11 @@ def get_sample_mean(sample):
 
     pass
 
-test_sample2 = get_sample(data, 30)
+test_sample2 = get_sample(data, 30, 0)
 test_sample2_mean = get_sample_mean(test_sample2)
 print(test_sample2_mean) 
-# 32.733333333333334
+
+# You should get 32.733333333333334, again, if you used the same code that we did.
 ```
 
 

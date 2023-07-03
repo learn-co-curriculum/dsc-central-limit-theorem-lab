@@ -67,14 +67,19 @@ Since our dataset is non-normal, that means we'll need to use the **_Central Lim
 
 In order to create a Sampling Distribution of Sample Means, we need to first write a function that can sample *with* replacement.  
 
-In the cell below, write a function that takes in an array of numbers `data` and a sample size `n` and returns an array that is a random sample of `data`, of size `n`.
+In the cell below, write a function that takes in an array of numbers `data` and a sample size `n` and returns an array that is a random sample of `data`, of size `n`. Additionally, we've added a marker for random seed for reproducability. 
 
 
 ```python
-def get_sample(data, n):
+def get_sample(data, n, seed):
+    #Adding random seed for reproducibility
+    np.random.seed(seed)
+    
+    #Your code here
+
     pass
 
-test_sample = get_sample(data, 30)
+test_sample = get_sample(data, 30, 0)
 print(test_sample[:5]) 
 # [56, 12, 73, 24, 8] (This will change if you run it multiple times)
 ```
@@ -86,12 +91,15 @@ Next, we'll write another helper function that takes in a sample and returns the
 
 ```python
 def get_sample_mean(sample):
+    
+    # Your code here
+
     pass
 
 test_sample2 = get_sample(data, 30)
 test_sample2_mean = get_sample_mean(test_sample2)
 print(test_sample2_mean) 
-# 45.3 (This will also change if you run it multiple times)
+# 32.733333333333334
 ```
 
 ### Creating a Sampling Distribution of Sample Means
@@ -100,6 +108,8 @@ Now that we have helper functions to help us sample with replacement and calcula
 
 In the cell below, write a function that takes in 3 arguments: the dataset, the size of the distribution to create, and the size of each individual sample. The function should return a sampling distribution of sample means of the given size.  
 
+Make sure to include some way to change the seed as your function proceeds!
+
 
 ```python
 def create_sample_distribution(data, dist_size=100, n=30):
@@ -107,6 +117,9 @@ def create_sample_distribution(data, dist_size=100, n=30):
 
 test_sample_dist = create_sample_distribution(data)
 print(test_sample_dist[:5]) 
+
+# If you set your seed to start at zero and iterate by 1 each sample you should get:
+# [32.733333333333334, 54.266666666666666, 50.7, 36.53333333333333, 40.0]
 ```
 
 ## Visualizing the Sampling Distribution as it Becomes Normal

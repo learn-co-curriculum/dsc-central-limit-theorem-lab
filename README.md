@@ -84,11 +84,14 @@ Since our dataset is non-normal, that means we'll need to use the **_Central Lim
 
 In order to create a Sampling Distribution of Sample Means, we need to first write a function that can sample *with* replacement.  
 
-In the cell below, write a function that takes in an array of numbers `data` and a sample size `n` and returns an array that is a random sample of `data`, of size `n`.
+In the cell below, write a function that takes in an array of numbers `data` and a sample size `n` and returns an array that is a random sample of `data`, of size `n`. Additionally, we've added a marker for random seed for reproducability. 
 
 
 ```python
-def get_sample(data, n):
+def get_sample(data, n, seed):
+    #Adding random seed for reproducibility
+    np.random.seed(seed)
+
     sample = []
     while len(sample) != n:
         x = np.random.choice(data)
@@ -96,9 +99,10 @@ def get_sample(data, n):
     
     return sample
 
-test_sample = get_sample(data, 30)
+test_sample = get_sample(data, 30, 0)
 print(test_sample[:5]) 
-# [56, 12, 73, 24, 8] (This will change if you run it multiple times)
+# [56, 12, 73, 24, 8] 
+
 ```
 
     [56, 12, 73, 24, 8]
@@ -116,7 +120,7 @@ def get_sample_mean(sample):
 test_sample2 = get_sample(data, 30)
 test_sample2_mean = get_sample_mean(test_sample2)
 print(test_sample2_mean) 
-# 45.3 (This will also change if you run it multiple times)
+# 32.733333333333334 
 ```
 
     45.3
@@ -128,14 +132,18 @@ Now that we have helper functions to help us sample with replacement and calcula
 
 In the cell below, write a function that takes in 3 arguments: the dataset, the size of the distribution to create, and the size of each individual sample. The function should return a sampling distribution of sample means of the given size.  
 
+Make sure to include some way to change the seed as your function proceeds!
+
 
 ```python
 def create_sample_distribution(data, dist_size=100, n=30):
+    seediter = 0
     sample_dist = []
     while len(sample_dist) != dist_size:
-        sample = get_sample(data, n)
+        sample = get_sample(data, n, seediter)
         sample_mean = get_sample_mean(sample)
         sample_dist.append(sample_mean)
+        seediter += 1
     
     return sample_dist
 
@@ -157,7 +165,7 @@ In the cell below, create a sampling distribution from `data` of `dist_size` 10,
 
 ```python
 # Visualize sampling distribution with n=3, 10, 30, across across mutliple iterations
-sample_dist_10 = create_sample_distribution(data, 10, 3)
+sample_dist_10 = create_sample_distribution(data, 10, 30)
 sns.distplot(sample_dist_10);
 ```
 

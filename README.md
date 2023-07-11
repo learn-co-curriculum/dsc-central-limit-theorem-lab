@@ -28,7 +28,8 @@ np.random.seed(0) #set a random seed for reproducibility
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -45,17 +46,15 @@ Next, read in the dataset.  A dataset of 10,000 numbers is stored in `non_normal
 
 ```python
 # Your code here
+
 ```
 
 
 ```python
-# __SOLUTION__ 
-data = pd.read_csv('non_normal_dataset.csv', squeeze=True)
-print(len(data)) # 10000
+# __SOLUTION__
+
+data = pd.read_csv('non_normal_dataset.csv').squeeze("columns")
 ```
-
-    10000
-
 
 ## Detecting Non-Normal Datasets
 
@@ -68,17 +67,25 @@ In the cell below, use `seaborn`'s `distplot` method to visualize a histogram of
 
 ```python
 # Your code here
+
 ```
 
 
 ```python
-# __SOLUTION__ 
-sns.distplot(data);
+# __SOLUTION__
+sns.displot(data)
 ```
 
 
+
+
+    <seaborn.axisgrid.FacetGrid at 0x7f99bb3b36a0>
+
+
+
+
     
-![png](index_files/index_9_0.png)
+![png](index_files/index_9_1.png)
     
 
 
@@ -91,11 +98,12 @@ In the cell below, use `normaltest()` to check if the dataset is normally distri
 
 ```python
 # Your code here
+
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 st.normaltest(data)
 ```
 
@@ -127,15 +135,14 @@ def get_sample(data, n, seed):
     pass
 
 test_sample = get_sample(data, 30, 0)
-print(test_sample[:5])
-
-# You will get [56, 12, 73, 24, 8] if you set your seed to zero and use the exact code
-# in our solution branch. It's okay if your results aren't exactly the same as ours!
+print(test_sample[:5]) 
+# [56, 12, 73, 24, 8] (This will change if you run it multiple times)
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
+
 def get_sample(data, n, seed):
     #Adding random seed for reproducibility
     np.random.seed(seed)
@@ -150,7 +157,6 @@ def get_sample(data, n, seed):
 test_sample = get_sample(data, 30, 0)
 print(test_sample[:5]) 
 # [56, 12, 73, 24, 8] 
-
 ```
 
     [56, 12, 73, 24, 8]
@@ -168,26 +174,26 @@ def get_sample_mean(sample):
 
     pass
 
-test_sample2 = get_sample(data, 30, 0)
+test_sample2 = get_sample(data, 30)
 test_sample2_mean = get_sample_mean(test_sample2)
 print(test_sample2_mean) 
-
-# You should get 32.733333333333334, again, if you used the same code that we did.
+# 32.733333333333334
 ```
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
+
 def get_sample_mean(sample):
     return sum(sample) / len(sample)
 
-test_sample2 = get_sample(data, 30)
+test_sample2 = get_sample(data, 30, 0)
 test_sample2_mean = get_sample_mean(test_sample2)
 print(test_sample2_mean) 
 # 32.733333333333334 
 ```
 
-    45.3
+    32.733333333333334
 
 
 ### Creating a Sampling Distribution of Sample Means
@@ -212,7 +218,8 @@ print(test_sample_dist[:5])
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
+
 def create_sample_distribution(data, dist_size=100, n=30):
     seediter = 0
     sample_dist = []
@@ -228,7 +235,7 @@ test_sample_dist = create_sample_distribution(data)
 print(test_sample_dist[:5]) 
 ```
 
-    [48.86666666666667, 39.43333333333333, 49.7, 54.53333333333333, 60.666666666666664]
+    [32.733333333333334, 54.266666666666666, 50.7, 36.53333333333333, 40.0]
 
 
 ## Visualizing the Sampling Distribution as it Becomes Normal
@@ -237,7 +244,7 @@ The sampling distribution of sample means isn't guaranteed to be normal after it
 
 Let's create some sampling distributions of different sizes and watch the Central Limit Theorem kick in. As the sample size increases, you'll see the distributions begin to approximate a normal distribution more closely.  
 
-In the cell below, create a sampling distribution from `data` of `dist_size` 10, with a sample size `n` of 3. Then, visualize this sampling distribution with `distplot`.
+In the cell below, create a sampling distribution from `data` of `dist_size` 10, with a sample size `n` of 3. Then, visualize this sampling distribution with `displot`.
 
 
 ```python
@@ -246,10 +253,10 @@ In the cell below, create a sampling distribution from `data` of `dist_size` 10,
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
 # Visualize sampling distribution with n=3, 10, 30, across across mutliple iterations
 sample_dist_10 = create_sample_distribution(data, 10, 30)
-sns.distplot(sample_dist_10);
+sns.displot(sample_dist_10);
 ```
 
 
@@ -267,9 +274,10 @@ Now, let's increase the `dist_size` to 30, and `n` to 10.  Create another visual
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
+
 sample_dist_30 = create_sample_distribution(data, 30, 10)
-sns.distplot(sample_dist_30);
+sns.displot(sample_dist_30);
 ```
 
 
@@ -289,9 +297,10 @@ In the cell below, create another sampling distribution of `data` with `dist_siz
 
 
 ```python
-# __SOLUTION__ 
+# __SOLUTION__
+
 sample_dist_1000 = create_sample_distribution(data, 1000, 30)
-sns.distplot(sample_dist_1000);
+sns.displot(sample_dist_1000);
 ```
 
 

@@ -33,6 +33,7 @@ Next, read in the dataset.  A dataset of 10,000 numbers is stored in `non_normal
 
 ```python
 # Your code here
+
 ```
 
 ## Detecting Non-Normal Datasets
@@ -46,6 +47,7 @@ In the cell below, use `seaborn`'s `distplot` method to visualize a histogram of
 
 ```python
 # Your code here
+
 ```
 
 As expected, this dataset is not normally distributed.  
@@ -57,6 +59,7 @@ In the cell below, use `normaltest()` to check if the dataset is normally distri
 
 ```python
 # Your code here
+
 ```
 
 The output may seem a bit hard to interpret since we haven't covered hypothesis testing and p-values in further detail yet.  However, the function tests the hypothesis that the distribution passed into the function differs from the normal distribution. The null hypothesis would then be that the data *is* normally distributed. We typically reject the null hypothesis if the p-value is less than 0.05. For now, that's all you need to remember--this will make more sense once you work with p-values more which you'll do subsequently.  
@@ -96,7 +99,7 @@ def get_sample_mean(sample):
 
     pass
 
-test_sample2 = get_sample(data, 30)
+test_sample2 = get_sample(data, 30, 0)
 test_sample2_mean = get_sample_mean(test_sample2)
 print(test_sample2_mean) 
 # 32.733333333333334
@@ -128,7 +131,7 @@ The sampling distribution of sample means isn't guaranteed to be normal after it
 
 Let's create some sampling distributions of different sizes and watch the Central Limit Theorem kick in. As the sample size increases, you'll see the distributions begin to approximate a normal distribution more closely.  
 
-In the cell below, create a sampling distribution from `data` of `dist_size` 10, with a sample size `n` of 3. Then, visualize this sampling distribution with `distplot`.
+In the cell below, create a sampling distribution from `data` of `dist_size` 10, with a sample size `n` of 3. Then, visualize this sampling distribution with `displot`.
 
 
 ```python

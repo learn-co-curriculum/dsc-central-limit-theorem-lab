@@ -174,7 +174,7 @@ def get_sample_mean(sample):
 
     pass
 
-test_sample2 = get_sample(data, 30)
+test_sample2 = get_sample(data, 30, 0)
 test_sample2_mean = get_sample_mean(test_sample2)
 print(test_sample2_mean) 
 # 32.733333333333334
